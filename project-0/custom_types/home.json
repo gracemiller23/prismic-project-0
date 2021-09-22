@@ -1,0 +1,100 @@
+{
+    "Main" : {
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "uid"
+        }
+      },
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Title",
+          "placeholder" : "Title for Your Home Page"
+        }
+      },
+      "description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "description",
+          "placeholder" : "Describe what you do or sell."
+        }
+      },
+      "posts" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : { },
+          "label" : "posts"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "labels" : {
+            "post_list" : [ {
+              "display" : "label",
+              "name" : "label"
+            }, {
+              "display" : "label 2",
+              "name" : "label_2"
+            } ]
+          },
+          "choices" : {
+            "post_list" : {
+              "type" : "Slice",
+              "fieldset" : "Post List",
+              "description" : "Post List",
+              "icon" : "accessibility",
+              "non-repeat" : { },
+              "repeat" : {
+                "post_image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "post image"
+                  }
+                },
+                "post_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+                    "label" : "Post Title",
+                    "placeholder" : "Post Title"
+                  }
+                }
+              }
+            },
+            "post_carousel" : {
+                "type" : "Slice",
+                "fieldset" : "Post Carousel",
+                "description" : "Post Carousel",
+                "icon" : "accessibility",
+                "non-repeat" : { },
+                "repeat" : {
+                  "post_image" : {
+                    "type" : "Image",
+                    "config" : {
+                      "constraint" : { },
+                      "thumbnails" : [ ],
+                      "label" : "post image"
+                    }
+                  },
+                  "post_title" : {
+                    "type" : "StructuredText",
+                    "config" : {
+                      "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+                      "label" : "Post Title",
+                      "placeholder" : "Post Title"
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

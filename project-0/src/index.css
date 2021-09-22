@@ -2,3 +2,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+h2 {
+  font: 24px serif;
+  text-transform: uppercase; 
+}
+
+.image_fill{
+  background-position: center;
+  object-fit:cover;
+  background-repeat: no-repeat;
+}

@@ -4,10 +4,11 @@ import {
   BrowserRouter,
   Route,
   Switch,
-  Redirect
 } from 'react-router-dom'
 import { apiEndpoint } from './prismic-configuration'
-import { Help, Preview, NotFound } from './pages'
+import { Help, Preview, NotFound, Page, Post, Home } from './pages'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 /**
  * Main application componenet
@@ -23,9 +24,11 @@ const App = (props) => {
       </Helmet>
       <BrowserRouter>
         <Switch>
-          <Redirect exact from='/' to='/help' />
+          <Route exact path='/' component={Home} />
           <Route exact path='/help' component={Help} />
           <Route exact path='/preview' component={Preview} />
+          <Route exact path='/page/:uid' component={Page} />
+          <Route exact path='/post/:uid' component={Post} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
