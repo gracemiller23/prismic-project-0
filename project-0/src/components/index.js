@@ -1,3 +1,6 @@
+export {default as SliceHelper} from './SliceHelper'
 export {default as NavigationBar} from './NavigationBar.js'
 export {default as PostGrid} from './PostGrid.js'
-export {default as SliceHelper} from './SliceHelper'
+export {default as RelatedPosts} from './RelatedPosts'
+export {default as TextSlice} from './TextSlice'
+export {default as EmbedYT} from './EmbedYT'

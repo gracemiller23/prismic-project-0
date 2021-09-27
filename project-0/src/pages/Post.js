@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { client, linkResolver } from '../prismic-configuration'
 import NotFound from './NotFound'
+import {NavigationBar, SliceHelper} from '../components'
 
 const Post = ({ match }) => {
   const [doc, setDocData] = useState(null)
@@ -28,16 +29,19 @@ const Post = ({ match }) => {
   }, [uid]) // Skip the Effect hook if the UID hasn't changed
 
   if (doc) {
+
     return (
       <div className="post">
-        {/* This is how to get an image into your template 
-        <img src={doc.data.image.url} alt={doc.data.image.alt} /> */}
-        {/* This is how to render a Rich Text field as plain text */}
-        <h1>{doc.data.blog_content[0].text}</h1>
-        {/* This is how to render a Rich Text field into your template as HTML 
+     
+        <RichText render={(doc.data.blog_title)} />
+
+        <img src={doc.data.featured_image.url} alt={doc.data.featured_image.alt} /> 
        
-        <RichText render={doc.data.blog_content[0]} linkResolver={linkResolver} />
-        */}
+        <RichText render={doc.data.blog_content} linkResolver={linkResolver} />
+      
+        {doc.data.body.map((slice)=>{
+            return <SliceHelper slice={slice} />
+        })}
       </div>
     )
   } else if (notFound) {

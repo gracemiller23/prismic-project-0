@@ -8,6 +8,10 @@ h2 {
   text-transform: uppercase; 
 }
 
+.nav-link{
+  color:white;
+}
+
 .image_fill{
   background-position: center;
   object-fit:cover;

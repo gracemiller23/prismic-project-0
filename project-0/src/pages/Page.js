@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { client, linkResolver } from '../prismic-configuration'
 import NotFound from './NotFound'
-import NavigationBar from '../components/NavigationBar'
+import {NavigationBar, SliceHelper} from '../components'
 
 const Page = ({ match }) => {
   const [doc, setDocData] = useState(null)
@@ -39,6 +39,10 @@ const Page = ({ match }) => {
         <h1>{RichText.asText(doc.data.title)}</h1>
         {/* This is how to render a Rich Text field into your template as HTML */}
         <RichText render={doc.data.description} linkResolver={linkResolver} />
+        {doc.data.body.map((slice)=>{
+            return <SliceHelper slice={slice} />
+        })}
+
       </div>
     )
   } else if (notFound) {

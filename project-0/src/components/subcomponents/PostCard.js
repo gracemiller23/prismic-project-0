@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import {linkResolver } from '../../prismic-configuration'
-import Prismic from 'prismic-javascript'
 import { Link } from 'react-router-dom'
 import Card from "react-bootstrap/Card";
 
@@ -28,7 +27,7 @@ const cardLinkStyle={
 
 const PostCard = (props) =>{
         return(
-            <Link to={"/post/"+props.postData.uid} style={cardLinkStyle}> 
+            <Link to={`/${props.postData.type}/${props.postData.uid}`} style={cardLinkStyle}> 
                 <Card className='image_fill' style={{ backgroundImage: "url("+props.postData.data.featured_image.url+")", ...cardStyle }}>
                     <Card.Body>
                         <RichText render={props.postData.data.blog_title} linkResolver={linkResolver} />            

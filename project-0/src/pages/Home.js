@@ -40,13 +40,11 @@ const Home = (props) => {
         <Row className='image_fill' style={{backgroundImage: 'url('+doc.home.data.hero_image.url+')', color: 'white', minHeight:'75vh'}}>
           <Col>
             <NavigationBar links={doc.home.data.navigation_links} linkColor='white'/>
-            <h3>{doc.home.data.title[0].text}</h3>
-            <p>{doc.home.data.description[0].text}</p>
+            <RichText render={(doc.home.data.title)} />
+            <RichText render={(doc.home.data.description)}/>
           </Col>
         </Row>
-        {/** Handle slice portions of the custom type with the Slice Helper Component to centralize slice/component logic.  
-         * TODO: Decide where/if need to handle rows/cols for slices
-        */}
+        {/** Handle slice portions of the custom type with the Slice Helper Component to centralize slice/component logic.  */}
         {doc.home.data.body.map((slice)=>{
             return <SliceHelper slice={slice} />
         })}
