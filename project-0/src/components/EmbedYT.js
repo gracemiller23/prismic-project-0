@@ -1,6 +1,5 @@
 import React from 'react'
-import { RichText } from 'prismic-reactjs'
-import { linkResolver } from '../prismic-configuration'
+
 
 
 const EmbedYT = (props) => {
