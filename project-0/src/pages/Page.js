@@ -14,7 +14,7 @@ const Page = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       // We are using the function to get a document by its UID
-      const result = await client.getByUID('page', uid)
+      const result = await client.getByUID('page', uid, {'fetchLinks':['page.title']})
 
       if (result) {
         // We use the State hook to save the document

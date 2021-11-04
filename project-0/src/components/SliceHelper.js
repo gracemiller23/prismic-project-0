@@ -1,5 +1,5 @@
 import React from 'react'
-import { PostGrid, RelatedPosts, TextSlice, EmbedYT} from '../components'
+import { PostGrid, RelatedPosts, TextSlice, EmbedYT, ImgTxtColumns, CodeSnippet } from '../components'
 
 
 const SliceHelper = (props) => {
@@ -19,6 +19,12 @@ const SliceHelper = (props) => {
         },
         embed_youtube: () => {
           return <EmbedYT youtubeVid = {props.slice}/>
+        },
+        left_right_image_column: () => {
+          return <ImgTxtColumns columns={props.slice} />
+        },
+        code_snippet: ()=>{
+          return <CodeSnippet code={props.slice}/>
         }
     }
    

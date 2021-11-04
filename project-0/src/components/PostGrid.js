@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { client, linkResolver } from '../prismic-configuration'
-import Prismic from 'prismic-javascript'
+import Prismic from '@prismicio/client'
 import { PostCard} from './subcomponents'
 import { Container } from 'react-bootstrap'
 

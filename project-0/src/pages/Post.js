@@ -3,6 +3,8 @@ import { RichText } from 'prismic-reactjs'
 import { client, linkResolver } from '../prismic-configuration'
 import NotFound from './NotFound'
 import {NavigationBar, SliceHelper} from '../components'
+import { AuthorCard } from '../components/subcomponents'
+import { Container } from 'react-bootstrap'
 
 const Post = ({ match }) => {
   const [doc, setDocData] = useState(null)
@@ -14,7 +16,7 @@ const Post = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       // We are using the function to get a document by its UID
-      const result = await client.getByUID('post', uid)
+      const result = await client.getByUID('post', uid, {'fetchLinks': ['author.author_image', 'author.author_name', 'author.author_bio' ]})
 
       if (result) {
         // We use the State hook to save the document
@@ -31,7 +33,7 @@ const Post = ({ match }) => {
   if (doc) {
 
     return (
-      <div className="post">
+      <div className="post container">
      
         <RichText render={(doc.data.blog_title)} />
 
@@ -42,6 +44,8 @@ const Post = ({ match }) => {
         {doc.data.body.map((slice)=>{
             return <SliceHelper slice={slice} />
         })}
+
+        <AuthorCard author={doc.data.author}/>
       </div>
     )
   } else if (notFound) {

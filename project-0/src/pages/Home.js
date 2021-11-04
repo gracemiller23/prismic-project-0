@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { client, linkResolver } from '../prismic-configuration'
 import NotFound from './NotFound'
 import {NavigationBar, SliceHelper }from '../components'
-import Prismic from 'prismic-javascript'
+import Prismic from '@prismicio/client'
 import {Container, Row, Col} from 'react-bootstrap'
 
 const Home = (props) => {
@@ -15,13 +15,11 @@ const Home = (props) => {
       
     const fetchData = async () => {
      
-        const home = await client.query(
-            Prismic.Predicates.at('document.type', 'home')
-        )
+      const home = await client.getSingle('home', {'fetchLinks':['page.title']})
 
       if (home ) {
         
-            return setDocData({home:home.results[0]})
+            return setDocData({home:home})
       
       } else {
         // Otherwise show an error message

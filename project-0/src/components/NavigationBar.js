@@ -11,8 +11,8 @@ const NavigationBar = (props)=>{
            {props.links.map((link)=>{
                return(
                
-                   <li id={link.navigation_link.id} style={{display:"inline-block", margin:"5px"}}>
-                       <a className="nav-link" href={Link.url(link.navigation_link, linkResolver)} >{link.navigation_link.slug} </a>
+                   <li id={link.navigation_link.id} style={{display:"inline-block", margin:"5px", backgroundColor:"black"}}>
+                       <a className="nav-link" href={Link.url(link.navigation_link, linkResolver)} >{link.navigation_link.data.title[0].text} </a>
                     </li>
     
                )
